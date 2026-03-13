@@ -10,6 +10,12 @@ import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
  * @title PrivateLendingCore
  * @dev Core for private lending with ZK proofs
  */
+/**
+ * 隐私借贷核心，隐藏用户仓位和交易细节
+ * 1. 用户提交ZK证明来证明他们的抵押品价值和健康因子
+ * 2. 用户可以私密地存款和借款，而不暴露他们的仓位细节
+ * 3. 通过ZK证明验证用户的操作合法性，确保协议安全 
+ */
 contract PrivateLendingCore {
     DSCEngine public dscEngine;
     DecentralizedStableCoin public dsc;

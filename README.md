@@ -182,10 +182,10 @@ Issues and Pull Requests are welcome!
 
 ## Development Roadmap
 
-- Implement complete Circom ZK circuits
-- Add frontend interface
-- Security audit
-- Mainnet deployment
+- [ ] Implement complete Circom ZK circuits
+- [ ] Add frontend interface
+- [ ] Security audit
+- [ ] Mainnet deployment
 
 # Thank You!
 

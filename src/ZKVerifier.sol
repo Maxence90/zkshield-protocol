@@ -10,7 +10,7 @@ contract ZKVerifier {
         uint256[8] calldata proof,
         uint256[4] calldata pubSignals
     ) external pure returns (bool) {
-        // Placeholder: always return true for demo
+        //TODO: Placeholder: always return true for demo
         return true;
     }
 }
