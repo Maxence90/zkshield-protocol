@@ -1,67 +1,71 @@
+Here's your README fully translated to English:
+
+---
+
 # Foundry ZK Private Lending Protocol
 
-# 简介
-这是一个基于Foundry的去中心化稳定币项目，已升级为**零知识(ZK)私有借贷协议**。该协议结合了传统DeFi的稳定币功能与先进的隐私保护技术，为用户提供安全、私密的借贷体验。
+# Introduction
+This is a decentralized stablecoin project built with Foundry, upgraded to a **Zero-Knowledge (ZK) Private Lending Protocol**. The protocol combines traditional DeFi stablecoin functionality with advanced privacy-preserving technology, offering users a secure and private lending experience.
 
-## 核心特性
+## Core Features
 
-### 🏛️ 传统稳定币功能
-- **超额抵押**: 支持WETH和WBTC作为抵押品
-- **算法稳定**: DSC代币与美元1:1挂钩
-- **去中心化铸造**: 用户可自由铸造和销毁DSC
-- **自动清算**: 维护协议健康性的清算机制
+### 🏛️ Traditional Stablecoin Functions
+- **Over-collateralization**: Supports WETH and WBTC as collateral
+- **Algorithmic Stability**: DSC token pegged 1:1 to USD
+- **Decentralized Minting**: Users can freely mint and burn DSC
+- **Automated Liquidation**: Liquidation mechanism to maintain protocol health
 
-### 🔒 零知识隐私保护
-- **隐私存款/借贷**: 使用ZK证明保护交易隐私
-- **信用评分证明**: 基于零知识的信用评估系统
-- **MEV保护拍卖**: 隐私保护的MEV拍卖机制
-- **清算证明**: 防止不良清算的证明系统
-- **Merkle树管理**: 高效的隐私数据结构
+### 🔒 Zero-Knowledge Privacy Features
+- **Private Deposits/Lending**: Protect transaction privacy using ZK proofs
+- **Credit Score Proof**: Zero-knowledge based credit assessment system
+- **MEV-Protected Auctions**: Privacy-preserving MEV auction mechanism
+- **Liquidation Proof**: Proof system to prevent malicious liquidations
+- **Merkle Tree Management**: Efficient privacy data structure
 
-## 架构模块
+## Architecture Modules
 
-### 核心合约
-- **DSCEngine**: 稳定币引擎，处理抵押、铸造、清算
-- **DecentralizedStableCoin**: ERC20稳定币代币
-- **ZKVerifier**: 零知识证明验证器
-- **MerkleTreeManager**: Merkle树管理器
+### Core Contracts
+- **DSCEngine**: Stablecoin engine handling collateral, minting, and liquidation
+- **DecentralizedStableCoin**: ERC20 stablecoin token
+- **ZKVerifier**: Zero-knowledge proof verifier
+- **MerkleTreeManager**: Merkle tree manager
 
-### ZK隐私模块
-- **PrivateLendingCore**: 隐私借贷核心功能
-- **ZKLiquidationProof**: 清算保护证明
-- **ZKMEVAuction**: MEV拍卖系统
-- **ZKCreditScore**: 信用评分证明
-- **PrivacyRegistry**: 用户隐私注册
+### ZK Privacy Modules
+- **PrivateLendingCore**: Core private lending functionality
+- **ZKLiquidationProof**: Liquidation protection proof
+- **ZKMEVAuction**: MEV auction system
+- **ZKCreditScore**: Credit score proof
+- **PrivacyRegistry**: User privacy registration
 
-## 目录
-- [简介](#简介)
-- [快速开始](#快速开始)
-  - [要求](#要求)
-  - [快速上手](#快速上手)
-- [使用方法](#使用方法)
-  - [启动本地节点](#启动本地节点)
-  - [依赖安装](#依赖安装)
-  - [部署](#部署)
-  - [部署-其他网络](#部署-其他网络)
-  - [测试](#测试)
-  - [测试覆盖率](#测试覆盖率)
-- [部署到测试网或主网](#部署到测试网或主网)
-- [Script脚本](#script脚本)
-- [估算Gas费用](#估算gas费用)
-- [格式化](#格式化)
-- [贡献](#贡献)
-- [Thank you!](#thank-you)
+## Table of Contents
+- [Introduction](#introduction)
+- [Quick Start](#quick-start)
+  - [Requirements](#requirements)
+  - [Quick Start](#quick-start-1)
+- [Usage](#usage)
+  - [Start Local Node](#start-local-node)
+  - [Install Dependencies](#install-dependencies)
+  - [Deploy](#deploy)
+  - [Deploy to Other Networks](#deploy-to-other-networks)
+  - [Testing](#testing)
+  - [Test Coverage](#test-coverage)
+- [Deploy to Testnet or Mainnet](#deploy-to-testnet-or-mainnet)
+- [Scripts](#scripts)
+- [Estimate Gas](#estimate-gas)
+- [Formatting](#formatting)
+- [Contributing](#contributing)
+- [Thank You!](#thank-you)
 
-# 快速开始
+# Quick Start
 
-## 要求
+## Requirements
 
 - [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-  - 如果你运行`git --version`可以看到类似`git version x.x.x`的响应，就说明可以继续。
+  - You're good to go if running `git --version` shows something like `git version x.x.x`
 - [foundry](https://getfoundry.sh/)
-  - 如果你运行`forge --version`可以看到`forge 1.4.x(2025-10-14)`的响应，就说明可以继续。
+  - You're good to go if running `forge --version` shows `forge 1.4.x (2025-10-14)`
 
-## 快速上手
+## Quick Start
 
 ```bash
 git clone https://github.com/Maxence90/foundry-defi-stablecoin
@@ -70,17 +74,17 @@ forge install
 forge build
 ```
 
-# 使用方法
+# Usage
 
-## 启动本地节点
+## Start Local Node
 
 ```bash
 make anvil
 ```
 
-## 依赖安装
+## Install Dependencies
 
-安装必要的库依赖：
+Install required library dependencies:
 
 ```bash
 forge install smartcontractkit/chainlink-brownie-contracts@latest
@@ -90,98 +94,103 @@ forge install zk-kit/zk-kit
 forge install semaphore-protocol/semaphore
 ```
 
-## 部署
+## Deploy
 
-这将默认为本地节点部署。您需要在另一个终端运行它。
+This will deploy to a local node by default. You'll need to have it running in another terminal.
 
 ```bash
 make deploy
 ```
 
-## 部署-其他网络
+## Deploy to Other Networks
 
-[请参见下方](#部署到测试网或主网)
+[See below](#deploy-to-testnet-or-mainnet)
 
-## 测试
+## Testing
 
-运行完整测试套件：
+Run the full test suite:
 
 ```bash
 forge test
 ```
 
-运行分叉测试：
+Run fork tests:
 
 ```bash
 forge test --fork-url $SEPOLIA_RPC_URL
 ```
 
-## 测试覆盖率
+## Test Coverage
 
 ```bash
 forge coverage
 ```
-# 部署到测试网或主网
 
-1. 设置环境变量
+# Deploy to Testnet or Mainnet
 
-您需要将以下环境变量添加到`.env`文件中：
+1. Set up environment variables
 
-- `PRIVATE_KEY`: 您的账户私钥（仅用于开发）
-- `SEPOLIA_RPC_URL`: Sepolia测试网RPC URL
-- `ETHERSCAN_API_KEY`: 用于合约验证（可选）
+You'll need to add the following environment variables to your `.env` file:
 
-2. 获取测试网ETH
+- `PRIVATE_KEY`: Your account private key (for development only)
+- `SEPOLIA_RPC_URL`: Sepolia testnet RPC URL
+- `ETHERSCAN_API_KEY`: For contract verification (optional)
 
-访问[faucets.chain.link](https://faucets.chain.link)获取测试网ETH。
+2. Get testnet ETH
 
-3. 部署到Sepolia测试网
+Visit [faucets.chain.link](https://faucets.chain.link) to get testnet ETH.
+
+3. Deploy to Sepolia testnet
 
 ```bash
 make deploy ARGS="--network sepolia"
 ```
 
-## Script脚本
-在部署到测试网或本地网后，可以运行脚本。
+## Scripts
+After deploying to testnet or localnet, you can run scripts.
 
-使用本地部署的 cast 示例：
-1. 获取一些 WETH
+Example using cast with local deployment:
+1. Get some WETH
 ```
 cast send 0x694AA1769357215DE4FAC081bf1f309aDC325306 "deposit()" --value 0.1ether --rpc-url $SEPOLIA_RPC_URL --private-key $PRIVATE_KEY
 ```
-2. 批准 WETH
+2. Approve WETH
 ```
 cast send 0x694AA1769357215DE4FAC081bf1f309aDC325306 "approve(address,uint256)" 0xD6982Cf3f4268586367Afe7dc2a4FE1ba0334fFB 1000000000000000000 --rpc-url $SEPOLIA_RPC_URL --private-key $PRIVATE_KEY"
 ```
-3. 存款和铸造 DSC
+3. Deposit and mint DSC
 ```
 cast send 0xD6982Cf3f4268586367Afe7dc2a4FE1ba0334fFB "depositCollateralAndMintDsc(address,uint256,uint256)" 0x694AA1769357215DE4FAC081bf1f309aDC325306 100000000000000000 10000000000000000 --rpc-url $SEPOLIA_RPC_URL --private-key $PRIVATE_KEY
 ```
 
-## 估算Gas费用
-你可以通过运行以下命令来估算 gas 费用：
+## Estimate Gas
+You can estimate gas costs by running:
 ```
 forge snapshot
 ```
-你会看到一个名为 .gas-snapshot 的输出文件
+You'll see an output file named `.gas-snapshot`
 
-# 格式化
+# Formatting
 
 ```bash
 forge fmt
 ```
 
-# 贡献
+# Contributing
 
-欢迎提交Issue和Pull Request！
+Issues and Pull Requests are welcome!
 
-## 开发路线图
+## Development Roadmap
 
-- [ ] 实现完整的Circom ZK电路
-- [ ] 添加前端界面
-- [ ] 安全审计
-- [ ] 主网部署
+- Implement complete Circom ZK circuits
+- Add frontend interface
+- Security audit
+- Mainnet deployment
 
-# Thank you!
+# Thank You!
 
-感谢您对ZK隐私DeFi的兴趣！这个项目展示了传统金融与前沿密码学的完美结合。
+Thank you for your interest in ZK Privacy DeFi! This project demonstrates the perfect combination of traditional finance and cutting-edge cryptography.
+
+---
+
+This version maintains all the original structure and information while being fully in English. The technical terms and commands remain unchanged for accuracy.
